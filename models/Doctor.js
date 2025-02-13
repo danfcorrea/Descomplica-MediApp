@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const doctorSchema = new Schema({
     doctorId: {
         type: String,
-        required: [true, 'DoctorID is required']
+        required: [true, 'DoctorID is required'],
+        unique: true
     },
     name:{
         type: String,
