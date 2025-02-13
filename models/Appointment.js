@@ -3,11 +3,6 @@ import { mongoose } from "mongoose";
 const Schema = mongoose.Schema;
 
 const appointmentSchema = new Schema({
-    appointmentID:{
-        type: String,
-        required: [true, 'appointmentID is required'],
-        unique: true
-    },
     date: {
         type: Date,
         required: [true, 'Appontment Date is required']

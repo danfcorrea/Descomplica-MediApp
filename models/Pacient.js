@@ -3,11 +3,6 @@ import { mongoose } from "mongoose";
 const Schema = mongoose.Schema;
 
 const pacientSchema = new Schema({
-    pacientId: {
-        type: String,
-        required: [true, 'PacientID is required'],
-        unique: true
-    },
     name:{
         type: String,
         required: [true, 'Pacient name is required']
