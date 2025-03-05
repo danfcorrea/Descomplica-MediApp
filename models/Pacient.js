@@ -36,6 +36,6 @@ const pacientSchema = new Schema({
     },
 });
 
-const pacient = mongoose.model("Appointment", pacientSchema);
+const pacient = mongoose.model("Pacient", pacientSchema);
 
 export default pacient;

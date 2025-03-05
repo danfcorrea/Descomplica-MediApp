@@ -34,6 +34,6 @@ const prescriptionSchema = new Schema({
     },
 });
 
-const prescription = mongoose.model("Appointment", prescriptionSchema);
+const prescription = mongoose.model("Prescription", prescriptionSchema);
 
 export default prescription;

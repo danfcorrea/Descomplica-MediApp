@@ -1,4 +1,4 @@
-import { express } from "express"
+import express from "express"
 import appointmentController from "./AppointmentController.js"
 import doctorController from "./DoctorController.js"
 import pacientController from "./PacientController.js"
@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get(
     "/", function (req, res){
-        res.status(200).json({message: ""});
+        res.status(200).json({message: "hi"});
     }
 );
 
