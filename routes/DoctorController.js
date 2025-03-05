@@ -25,7 +25,7 @@ router.get('/getDoctor/:id', async(req, res) =>{
     }
 })
 
-router.post('/postDoctor', async(req, res) =>{
+router.post('/createDoctor', async(req, res) =>{
     const {name, login, password, medicalSpecialty, medicalRegistration, email, phone} = req.body;
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -37,11 +37,12 @@ router.post('/postDoctor', async(req, res) =>{
     }
 })
 
-router.put('/doctor/:id', async(req, res) =>{
+router.put('/updateDoctor/:id', async(req, res) =>{
     const {id} = req.params;
     const {name, login, password, medicalSpecialty, medicalRegistration, email, phone} = req.body;
     try {
-        const doctor = await DoctorService.updateDoctor(id, {name, login, password, medicalSpecialty, medicalRegistration, email, phone});
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const doctor = await DoctorService.updateDoctor(id, {name, login, password: hashedPassword, medicalSpecialty, medicalRegistration, email, phone});
         res.send(doctor);
     } catch (error) {
         console.log(error);
@@ -49,7 +50,7 @@ router.put('/doctor/:id', async(req, res) =>{
     }
 })
 
-router.put('/doctors/:id', async(req, res) =>{
+router.delete('/deleteDoctor/:id', async(req, res) =>{
     const {id} = req.params;
     try {
         const doctor = await DoctorService.deleteDoctor(id);
