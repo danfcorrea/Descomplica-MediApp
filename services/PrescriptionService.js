@@ -31,7 +31,7 @@ const generatePrescriptionFile = async (prescription) => {
     const doctor = await DoctorService.getDoctor(appointment.doctorId);
 
     const id = prescription._id;
-    const filePath = "../prescriptions/" + id + ".pdf";
+    const filePath = "../MediApp/prescriptions/" + id + ".pdf";
     const document = new PDFDocument({font: "Courier"});
     const recipe = "Medicine: " + prescription.medicine;
 
