@@ -33,6 +33,9 @@ const prescriptionSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    file: {
+        type: String
+    },
 });
 
 const prescription = mongoose.model("Prescription", prescriptionSchema);
