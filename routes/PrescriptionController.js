@@ -58,4 +58,16 @@ router.delete('/deletePrescription/:id', async(req, res) =>{
     }
 })
 
+router.get('/generatePrescription/:id', async(req, res) =>{
+    const {id} = req.params;
+    try {
+        const prescription = await PrescriptionService.getPrescription(id);
+        const generatePrescription = await PrescriptionService.generatePrescriptionFile(prescription);
+        res.send(generatePrescription);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+})
+
 export default router;
