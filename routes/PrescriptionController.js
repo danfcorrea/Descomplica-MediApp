@@ -32,7 +32,7 @@ router.get('/readPrescription/:id', async(req, res) =>{
     const {id} = req.params;
     try {
         const prescription = await PrescriptionService.getPrescription(id);
-        let filePath = path.resolve(process.cwd() + "/../" + prescription.file);
+        let filePath = path.resolve(process.cwd() + "/./" + prescription.file);
         res.status(200).sendFile(filePath);
     } catch (error) {
         console.log(error);
